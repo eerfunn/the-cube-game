@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Rigidbody rb;
+    
+    // FixedUpdate is called for calculating Physics
+    void FixedUpdate()
     {
-        Debug.Log("Hello World");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //add 2000 force on z-axis
+        rb.AddForce(0, 0, 2000 * Time.deltaTime);
     }
 }
