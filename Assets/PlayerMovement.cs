@@ -5,11 +5,24 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
-    
+
+    public float forwardForce = 2000f;
+    public float sidewaysForce = 500f;
+
+
+
     // FixedUpdate is called for calculating Physics
     void FixedUpdate()
     {
-        //add 2000 force on z-axis
-        rb.AddForce(0, 0, 2000 * Time.deltaTime);
+        //add a forward force on z-axis
+        rb.AddForce(0, 0, forwardForce * Time.deltaTime);
+        if (Input.GetKey("d"))
+        {
+            rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0);
+        }
+        if (Input.GetKey("a"))
+        {
+            rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0);
+        }
     }
 }
